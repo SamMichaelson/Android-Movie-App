@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="genreTextView" type="id" />
-    <item name="recyclerViewGenres" type="id">GenreAdapter</item>
-</resources>

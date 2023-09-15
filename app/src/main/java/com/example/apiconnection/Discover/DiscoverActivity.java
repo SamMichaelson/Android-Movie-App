@@ -30,7 +30,6 @@ public class DiscoverActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discover);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -62,6 +61,7 @@ public class DiscoverActivity extends AppCompatActivity {
 
         // Set the layout manager (e.g., LinearLayoutManager)
         recyclerViewGenres.setLayoutManager(new LinearLayoutManager(this));
+        setContentView(R.layout.activity_discover);
 
         // Rest of your code remains the same
         ApiInterface apiInterface = RetrofitClient.getRetrofitClient();
