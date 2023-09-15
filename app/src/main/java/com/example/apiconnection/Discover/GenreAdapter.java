@@ -1,5 +1,6 @@
 package com.example.apiconnection.Discover;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
     public GenreAdapter(List<String> genres) {
         this.genres = genres;
     }
+    @SuppressLint("NotifyDataSetChanged")
     public void setData(List<String> newData) {
         genres.clear();
         genres.addAll(newData);
