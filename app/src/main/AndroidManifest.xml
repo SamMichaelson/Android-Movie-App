@@ -1,0 +1,60 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.apiconnection">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="ApiConnection"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Series.MovieDetailActivity"
+            android:label="Movie Detail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Series.MovieDetailActivity" />
+        </activity>
+
+        <activity
+            android:name=".Search.SearchActivity"
+            android:label="Search Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Search.SearchActivity" />
+        </activity>
+
+        <activity
+            android:name=".Discover.DiscoverActivity"
+            android:label="Genre Details"
+            android:theme="@style/Theme.MaterialComponents" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Discover.DiscoverActivity" />
+        </activity>
+
+        <activity
+        android:name="com.example.apiconnection.Account.AccountActivity"
+        android:label="Account Detail"
+        android:theme="@style/Theme.MaterialComponents" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Account.AccountActivity" />
+    </activity>
+
+
+
+    </application>
+
+</manifest>

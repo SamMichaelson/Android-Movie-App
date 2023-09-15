@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name" translatable="false">ApiConnection</string>
+    <string name="body_text" translatable="false">This is Body text\t\t</string>
+    <string name="Title" translatable="false">Title</string>
+    <string name="chartRating" translatable="false">ChartRating</string>
+    <string name="title" translatable="false">Title</string>
+    <string name="id" translatable="false">ID</string>
+    <string name="url" translatable="false">Url</string>
+    <string name="year" translatable="false">year</string>
+    <string name="MoviePoster" translatable="false">MoviePoster</string>
+    <string name="movies_header" translatable="false">Search Movies</string>
+    <string name="plainText" translatable="false">Plain Text Holder</string>
+    <string name="averageRating" translatable="false">AvgRt</string>
+    <string name="totalVotes" translatable="false">TotVote</string>
+    <string name="outOf10" translatable="false">/10\n</string>
+    <string name="type" translatable="false">Type</string>
+    <string name="series" translatable="false"/>
+    <string name="Season" translatable="false">Season\n</string>
+    <string name="Episode" translatable="false">episode</string>
+    <string name="empty" translatable="false"/>
+    <string name="menu" translatable="false">Menu</string>
+    <string name="movies_database" translatable="false">Movies Database</string>
+    <string name="upcoming" translatable="false">Upcoming</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="search" translatable="false">Search</string>
+    <string name="view" translatable="false">View</string>
+    <string name="home" translatable="false">Home</string>
+    <string name="switch_dark_theme" translatable="false">Dark Theme</string>
+    <string name="dark_theme" translatable="false">Dark Theme</string>
+    <string name="date" translatable="false">date</string>
+    <string name="discover" translatable="false">Discover</string>
+
+</resources>

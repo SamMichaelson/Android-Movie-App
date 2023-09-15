@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_options">
+        <item>Sort By: Default</item>
+        <item>Sort By: Date</item>
+        <item>Sort By: Rate</item>
+        <item>Sort By: Popularity</item>
+    </string-array>
+</resources>
