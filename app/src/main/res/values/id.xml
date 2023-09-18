@@ -2,6 +2,6 @@
 <resources>
     <item type="id" name="action_home">@+id/action_home</item>
     <item type="id" name="action_search">@+id/action_search</item>
-<!--    <item type="id" name="action_discover">@+id/action_discover</item>-->
+    <item type="id" name="action_discover">@+id/action_discover</item>
     <item type="id" name="action_profile">@+id/action_profile</item>
 </resources>

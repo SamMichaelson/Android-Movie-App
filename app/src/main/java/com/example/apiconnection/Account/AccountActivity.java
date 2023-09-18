@@ -27,14 +27,17 @@ public class AccountActivity extends AppCompatActivity {
 
             if (itemId == R.id.action_home) {
                 intent = new Intent(AccountActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_search) {
                 intent = new Intent(AccountActivity.this, SearchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_discover) {
                 intent = new Intent(AccountActivity.this, DiscoverActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             }

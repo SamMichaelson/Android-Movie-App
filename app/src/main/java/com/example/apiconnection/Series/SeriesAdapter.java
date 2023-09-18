@@ -35,6 +35,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_details, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -110,6 +111,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
                     } else {
                         tvDate.setVisibility(View.GONE);
                     }
+
                 }
             } else {
                 // Handle null SeriesItem here if necessary

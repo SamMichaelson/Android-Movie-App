@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
 
         progressBar = findViewById(R.id.progressBar);
@@ -83,8 +83,9 @@ public class MainActivity extends AppCompatActivity {
                     sortSpinner.setVisibility(View.VISIBLE);
 
                 sort = (String) parentView.getItemAtPosition(position);
-                if (sort == null)
+                if(querySearch!=null)
                     performMovieSearch(querySearch);
+
             }
 
             @Override
@@ -103,14 +104,17 @@ public class MainActivity extends AppCompatActivity {
 
             if (itemId == R.id.action_search) {
                 intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_profile) {
                 intent = new Intent(MainActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_discover) {
                 intent = new Intent(MainActivity.this, DiscoverActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             }
@@ -446,6 +450,7 @@ public class MainActivity extends AppCompatActivity {
     // Create Intent items for movie details
     private Intent createMovieDetailIntent(MovieItem movie, float averageRating, int numVotes, String type, boolean isSeries, boolean isEpisode) {
         Intent intent = new Intent(MainActivity.this, MovieDetailActivity.class);
+
         intent.putExtra(MovieDetailActivity.EXTRA_MOVIE_YEAR, movie.getYear());
         intent.putExtra(MovieDetailActivity.EXTRA_MOVIE_TITLE, movie.getTitle());
         intent.putExtra(MovieDetailActivity.EXTRA_MOVIE_ID, movie.getId());
@@ -506,13 +511,9 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     float averageRating = response.body().getResults().getAverageRating();
                     int numVotes = response.body().getResults().getNumVotes();
-
-                    // Check if the Ratings object is null and create a new one if needed
                     if (movieItem.getRating() == null) {
                         movieItem.setRating(new Ratings());
                     }
-
-                    // Set the averageRating and numVotes
                     if (Float.isNaN(averageRating)) {
                         movieItem.getRating().setAverageRating(0.0F);
                     } else {
@@ -523,16 +524,12 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         movieItem.getRating().setNumVotes(numVotes);
                     }
-
-
-                    if (movieItems.indexOf(movieItem) == movieItems.size() - 1) {
-                        if (Objects.equals(sort, "Rate")) {
-                            sortMovieItemsByAverageRating(movieItems);
-                        } else if (Objects.equals(sort, "Popularity")){
-                            sortMovieItemsByNumVotes(movieItems);
-                        }
-                        runOnUiThread(() -> adapter.notifyDataSetChanged());
+                    if (Objects.equals(sort, "Rate")) {
+                        sortMovieItemsByAverageRating(movieItems);
+                    } else if (Objects.equals(sort, "Popularity")) {
+                        sortMovieItemsByNumVotes(movieItems);
                     }
+                    runOnUiThread(() -> adapter.notifyDataSetChanged());
                 }
             }
 

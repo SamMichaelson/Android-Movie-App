@@ -53,14 +53,17 @@ public class SearchActivity extends AppCompatActivity {
 
             if (itemId == R.id.action_home) {
                 intent = new Intent(SearchActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_profile) {
                 intent = new Intent(SearchActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_discover) {
                 intent = new Intent(SearchActivity.this, DiscoverActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             }

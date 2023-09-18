@@ -30,23 +30,27 @@ public class DiscoverActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_discover);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
+        bottomNavigationView.setSelectedItemId(R.id.action_discover);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             Intent intent;
             int itemId = item.getItemId();
 
             if (itemId == R.id.action_search) {
                 intent = new Intent(DiscoverActivity.this, SearchActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_profile) {
                 intent = new Intent(DiscoverActivity.this, AccountActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.action_home) {
                 intent = new Intent(DiscoverActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 return true;
             }
@@ -61,7 +65,7 @@ public class DiscoverActivity extends AppCompatActivity {
 
         // Set the layout manager (e.g., LinearLayoutManager)
         recyclerViewGenres.setLayoutManager(new LinearLayoutManager(this));
-        setContentView(R.layout.activity_discover);
+
 
         // Rest of your code remains the same
         ApiInterface apiInterface = RetrofitClient.getRetrofitClient();
@@ -72,7 +76,6 @@ public class DiscoverActivity extends AppCompatActivity {
                     CategoryResponse categoryResponse = response.body();
                     List<String> results = categoryResponse.getResults();
 
-                    // Update the data in the adapter
                     genreAdapter.setData(results);
                 }
             }

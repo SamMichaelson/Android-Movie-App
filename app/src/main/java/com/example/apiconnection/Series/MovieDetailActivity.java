@@ -56,7 +56,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
     GridLayoutManager gridLayoutManager;
 
-    @SuppressLint("NotifyDataSetChanged")
+    @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +92,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         String moviePlainText = getIntent().getStringExtra(EXTRA_MOVIE_PLAINTEXT);
         float movieAverageRating = getIntent().getFloatExtra(EXTRA_MOVIE_AVERAGE_RATING, 0);
         int movieNumVotes = getIntent().getIntExtra(EXTRA_MOVIE_NUM_VOTES, 0);
-        String movieId = "IMDB id: " + getIntent().getStringExtra(EXTRA_MOVIE_ID);
+        String movieId =  getIntent().getStringExtra(EXTRA_MOVIE_ID);
         String movieType = "Type: " + getIntent().getStringExtra(EXTRA_MOVIE_TYPE);
 
         ImageView imageView3 = findViewById(R.id.imageView3);
@@ -122,7 +122,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         TextView idTextView = findViewById(R.id.idTextView);
         TextView typeTextView = findViewById(R.id.typeTextView);
 
-        idTextView.setText(movieId);
+        idTextView.setText("IMDB id: " +movieId);
         typeTextView.setText(movieType);
 
         plainTextTextView.setText(moviePlainText);
@@ -141,6 +141,8 @@ public class MovieDetailActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
+
+
 
         if ("true".equals(getIntent().getStringExtra(EXTRA_MOVIE_IS_SERIES))) {
             fetchEpisodes(getIntent().getStringExtra(EXTRA_MOVIE_ID), 1);
@@ -176,7 +178,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void processNextEpisode(Queue<Episodes> episodeQueue) {
+
         if (!episodeQueue.isEmpty()) {
             Episodes episode = episodeQueue.poll();
             assert episode != null;
@@ -185,17 +189,16 @@ public class MovieDetailActivity extends AppCompatActivity {
             int episodeNumber = episode.getEpisodeNumber();
 
             // Fetch episode information
-            fetchInfo(tconst, seasonNumber, episodeNumber, new EpisodeFetchCallback() {
-                @Override
-                public void onEpisodeFetched(SeriesItem episodeItem) {
-                    // Add the episode item to the list and notify the adapter
-                    seriesItems.add(episodeItem);
-                    seriesAdapter.notifyDataSetChanged();
+            fetchInfo(tconst, seasonNumber, episodeNumber, episodeItem -> {
+                // Add the episode item to the list and notify the adapter
+                seriesItems.add(episodeItem);
+                seriesAdapter.notifyDataSetChanged();
 
-                    // Process the next episode
-                    processNextEpisode(episodeQueue);
-                }
+                // Process the next episode
+                processNextEpisode(episodeQueue);
             });
+
+
         }
     }
 

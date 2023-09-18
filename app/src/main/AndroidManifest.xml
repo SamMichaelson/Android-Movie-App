@@ -21,6 +21,7 @@
 
         <activity
             android:name=".Series.MovieDetailActivity"
+            android:theme="@style/AppTheme"
             android:label="Movie Detail" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,6 +30,7 @@
 
         <activity
             android:name=".Search.SearchActivity"
+            android:theme="@style/AppTheme"
             android:label="Search Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +40,7 @@
         <activity
             android:name=".Discover.DiscoverActivity"
             android:label="Genre Details"
-            android:theme="@style/Theme.MaterialComponents" >
+            android:theme="@style/AppTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Discover.DiscoverActivity" />
@@ -47,7 +49,7 @@
         <activity
         android:name="com.example.apiconnection.Account.AccountActivity"
         android:label="Account Detail"
-        android:theme="@style/Theme.MaterialComponents" >
+            android:theme="@style/AppTheme" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".Account.AccountActivity" />

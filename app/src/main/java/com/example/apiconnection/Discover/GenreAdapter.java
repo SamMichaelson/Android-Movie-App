@@ -23,7 +23,10 @@ public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.GenreViewHol
     @SuppressLint("NotifyDataSetChanged")
     public void setData(List<String> newData) {
         genres.clear();
-        genres.addAll(newData);
+        for (String genre : newData) {
+            if (genre != null)
+                genres.add(genre);
+        }
         notifyDataSetChanged();
     }
     @NonNull
