@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -10,6 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.example.apiconnection"
         minSdk = 21
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -32,7 +34,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
-        "-Xlint:deprecation"
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -54,7 +55,6 @@ dependencies {
     //picasso
     implementation ("com.squareup.picasso:picasso:2.71828")
 
-    implementation ("com.google.android.material:material:1.4.0")
 
     //
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
@@ -62,10 +62,10 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
 
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.7.2")
-    implementation ("androidx.annotation:annotation:1.6.0")
+    implementation ("androidx.annotation:annotation:1.7.0")
 
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("com.google.android.material:material:1.9.0")
@@ -75,7 +75,8 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     //noinspection GradleCompatible
     implementation("com.android.support:cardview-v7:28.0.0")
-    implementation("com.google.firebase:firebase-inappmessaging:20.3.3")
+    implementation("com.google.firebase:firebase-inappmessaging:20.3.5")
+    implementation("com.google.firebase:firebase-auth:22.1.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     //retrofit
@@ -83,5 +84,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.gridlayout:gridlayout:1.0.0")
 
+    //Login api Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
 
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526116820179",
+    "project_id": "apiconnection-739ef",
+    "storage_bucket": "apiconnection-739ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526116820179:android:23c10a80bc0ce629b7b026",
+        "android_client_info": {
+          "package_name": "com.example.apiconnection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaN3xF5g8nJHmPbI5CIbtGeShfuOXHnz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
