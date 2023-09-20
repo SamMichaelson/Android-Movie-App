@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(view -> loginUser());
         tvRegisterHere.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+
+
     }
 
     private void loginUser(){
