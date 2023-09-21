@@ -29,22 +29,28 @@
     <string name="dark_theme" translatable="false">Dark Theme</string>
     <string name="date" translatable="false">date</string>
     <string name="discover" translatable="false">Discover</string>
-    <string name="my_movies">My Movies</string>
-    <string name="my_series">My Series</string>
-    <string name="notifications">Notifications</string>
-    <string name="account_settings">Account Settings</string>
-    <string name="payment_method">Payment Method</string>
-    <string name="username">Username</string>
-    <string name="settings">Settings</string>
-    <string name="giga">Giga Chad</string>
-    <string name="welcome_you_are_logged_in">Welcome, You are logged in</string>
-    <string name="logout">Logout</string>
-    <string name="todo">TODO</string>
-    <string name="login">Login</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="not_registered_yet">Not registered yet</string>
-    <string name="register_here">Register here</string>
-    <string name="button">Button</string>
+    <string name="my_movies" translatable="false">My Movies</string>
+    <string name="my_series" translatable="false">My Series</string>
+    <string name="notifications" translatable="false">Notifications</string>
+    <string name="account_settings" translatable="false">Account Settings</string>
+    <string name="payment_method" translatable="false">Payment Method</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="giga" translatable="false">Giga Chad</string>
+    <string name="welcome_you_are_logged_in" translatable="false">Welcome, You are logged in</string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="not_registered_yet" translatable="false">Not registered yet</string>
+    <string name="register_here" translatable="false">Register here</string>
+    <string name="button" translatable="false">Button</string>
+    <string name="name" translatable="false">Name:</string>
+    <string name="surname" translatable="false">Surname:</string>
+    <string name="save" translatable="false">Save</string>
+    <string name="exampleEmail">example@example.com</string>
+    <string name="add_to_favorites">Add to Favorites</string>
+    <string name="favorite">favourate_image</string>
 
 </resources>

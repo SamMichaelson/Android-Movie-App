@@ -2,14 +2,19 @@ package com.example.apiconnection.Series;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +26,14 @@ import com.example.apiconnection.items.Episodes;
 import com.example.apiconnection.items.Image;
 import com.example.apiconnection.items.Result;
 import com.example.apiconnection.items.SeriesItem;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -53,6 +66,8 @@ public class MovieDetailActivity extends AppCompatActivity {
     private SeasonAdapter seasonAdapter;
     private List<SeriesItem> seriesItems = new ArrayList<>();
     private final List<String> seasonItems = new ArrayList<>();
+    List<String> favoriteMovieIds = new ArrayList<>();
+    boolean isFavorite=false;
 
     GridLayoutManager gridLayoutManager;
 
@@ -115,6 +130,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         // Set TextView values
         yearTextView.setText(String.valueOf(movieYear));
         titleTextView.setText(movieTitle);
+        TextViewCompat.setAutoSizeTextTypeWithDefaults(titleTextView, TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM);
+        ImageView favoriteIcon = findViewById(R.id.favoriteIcon);
+
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(android.R.attr.textColorPrimary, typedValue, true);
+        favoriteIcon.setColorFilter(ContextCompat.getColor(this, typedValue.resourceId), PorterDuff.Mode.SRC_IN);
 
         TextView plainTextTextView = findViewById(R.id.plainTextTextView);
         TextView averageRatingTextView = findViewById(R.id.averageRatingTextView);
@@ -147,6 +168,63 @@ public class MovieDetailActivity extends AppCompatActivity {
         if ("true".equals(getIntent().getStringExtra(EXTRA_MOVIE_IS_SERIES))) {
             fetchEpisodes(getIntent().getStringExtra(EXTRA_MOVIE_ID), 1);
         }
+
+
+
+        ConstraintLayout btnFav = findViewById(R.id.favButton);
+        TextView textFav = findViewById(R.id.favoriteText);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userId = user.getUid();
+
+            FirebaseApp.initializeApp(this);
+            DatabaseReference favoritesRef = FirebaseDatabase.getInstance().getReference("users")
+                    .child(userId)
+                    .child("favorites");
+
+            assert movieId != null;
+            favoritesRef.child(movieId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists() && dataSnapshot.getValue(Boolean.class) != null && dataSnapshot.getValue(Boolean.class)) {
+                        // Movie exists in favorites, update UI
+                        favoriteIcon.setImageResource(R.drawable.favorites_red);
+                        textFav.setText("Remove Favorite");
+                        isFavorite = true;
+                    } else {
+                        // Movie doesn't exist in favorites, update UI
+                        favoriteIcon.setImageResource(R.drawable.favorites);
+                        textFav.setText("Add to Favorites");
+                        isFavorite = false;
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Handle the error
+                }
+            });
+
+            // Set the click listener to toggle movie in favorites
+            btnFav.setOnClickListener(view -> {
+                if (isFavorite) {
+                    favoriteMovieIds.remove(movieId);
+                    favoritesRef.child(movieId).setValue(false); // Update the value to false
+                } else {
+                    favoriteMovieIds.add(movieId);
+                    favoritesRef.child(movieId).setValue(true); // Update the value to true
+                }
+                isFavorite = !isFavorite;
+            });
+        } else {
+            textFav.setText("Please Login");
+            // Disable the button or handle the case when the user is not logged in
+            btnFav.setEnabled(false);
+        }
+
+
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
