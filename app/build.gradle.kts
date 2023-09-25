@@ -76,22 +76,26 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     //noinspection GradleCompatible
-    implementation("com.android.support:cardview-v7:28.0.0")
-    implementation("com.google.firebase:firebase-inappmessaging:20.3.5")
-    implementation("com.google.firebase:firebase-auth:22.1.2")
+    implementation ("com.android.support:cardview-v7:28.0.0")
+    implementation ("com.google.firebase:firebase-inappmessaging:20.3.5")
+    implementation ("com.google.firebase:firebase-auth:22.1.2")
+    implementation("com.google.firebase:firebase-database-ktx:20.2.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("androidx.gridlayout:gridlayout:1.0.0")
+    implementation ("androidx.gridlayout:gridlayout:1.0.0")
 
     //Login api Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation (platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-analytics-ktx")
+    implementation ("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.google.firebase:firebase-auth:22.1.2")
+    implementation ("com.google.firebase:firebase-database")
+    implementation ("com.google.firebase:firebase-database-ktx:20.2.2")
     implementation ("com.google.firebase:firebase-database:20.2.2")
+
 
 }

@@ -6,6 +6,7 @@ import com.example.apiconnection.Series.RatingResponse;
 import com.example.apiconnection.Series.SeasonCountResponse;
 import com.example.apiconnection.Series.SeriesResponse;
 import com.example.apiconnection.items.CategoryResponse;
+import com.example.apiconnection.items.FavoriteResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -43,5 +44,10 @@ public interface ApiInterface {
 
     @GET("/titles/utils/genres")
     Call<CategoryResponse> discover();
+
+
+    @GET("/titles/{id}")
+    Call<FavoriteResponse> favorites(@Path("id") String id);
+
 
 }

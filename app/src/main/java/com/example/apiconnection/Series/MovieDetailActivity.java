@@ -187,7 +187,7 @@ public class MovieDetailActivity extends AppCompatActivity {
             favoritesRef.child(movieId).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists() && dataSnapshot.getValue(Boolean.class) != null && dataSnapshot.getValue(Boolean.class)) {
+                    if (dataSnapshot.exists() && dataSnapshot.getValue(Boolean.class) != null && Boolean.TRUE.equals(dataSnapshot.getValue(Boolean.class))) {
                         // Movie exists in favorites, update UI
                         favoriteIcon.setImageResource(R.drawable.favorites_red);
                         textFav.setText("Remove Favorite");

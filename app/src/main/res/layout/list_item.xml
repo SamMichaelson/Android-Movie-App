@@ -16,14 +16,14 @@
 
         <ImageView
             android:id="@+id/ivImage"
-            android:layout_width="200dp"
+            android:layout_width="0dp"
             android:layout_height="300dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            android:layout_margin="3dp"
             android:contentDescription="@string/MoviePoster"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/tvTitle"

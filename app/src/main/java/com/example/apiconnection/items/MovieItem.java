@@ -15,7 +15,7 @@ public class MovieItem implements Parcelable {
     private Ratings rating;
 
 
-    public MovieItem(String id,String title, int year, Image image, String type, boolean isSeries, boolean isEpisode) {
+    public MovieItem(String id, String title, int year, Image image, String type, boolean isSeries, boolean isEpisode) {
         this.id = id != null ? id : "Couldn't Find Title";
         this.title = title != null ? title : "Couldn't Find Title";
         this.year = year != 0 ? year : 404;

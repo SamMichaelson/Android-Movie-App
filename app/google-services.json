@@ -1,18 +1,32 @@
 {
   "project_info": {
     "project_number": "19599821400",
+    "firebase_url": "https://apiconnection-6286e-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "apiconnection-6286e",
     "storage_bucket": "apiconnection-6286e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:19599821400:android:6de5f472d4007b5700582d",
+        "mobilesdk_app_id": "1:19599821400:android:fe07450662f8022a00582d",
         "android_client_info": {
           "package_name": "com.example.apiconnection"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "19599821400-da5oocrtbtiq7l5vf35oodd7f36k1gah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apiconnection",
+            "certificate_hash": "b9cc677269989eb04220cebb1254f1fbe5b57003"
+          }
+        },
+        {
+          "client_id": "19599821400-7qosdu51rnn8o64tgrd2tqe4sp362mit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDPYFxXaMp6UgjVY-n0z2xSwpSTPF5Q-BU"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19599821400-7qosdu51rnn8o64tgrd2tqe4sp362mit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
