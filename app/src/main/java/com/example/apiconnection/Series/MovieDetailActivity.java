@@ -211,9 +211,14 @@ public class MovieDetailActivity extends AppCompatActivity {
                 if (isFavorite) {
                     favoriteMovieIds.remove(movieId);
                     favoritesRef.child(movieId).setValue(false); // Update the value to false
+                    favoriteIcon.setImageResource(R.drawable.favorites);
+                    textFav.setText("Add to Favorites");
+
                 } else {
                     favoriteMovieIds.add(movieId);
                     favoritesRef.child(movieId).setValue(true); // Update the value to true
+                    favoriteIcon.setImageResource(R.drawable.favorites_red);
+                    textFav.setText("Remove Favorite");
                 }
                 isFavorite = !isFavorite;
             });

@@ -96,6 +96,6 @@ dependencies {
     implementation ("com.google.firebase:firebase-database")
     implementation ("com.google.firebase:firebase-database-ktx:20.2.2")
     implementation ("com.google.firebase:firebase-database:20.2.2")
-
+    implementation ("com.google.firebase:firebase-storage:20.2.1")
 
 }

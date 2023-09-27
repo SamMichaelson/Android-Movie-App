@@ -79,6 +79,7 @@
             android:background="@drawable/circle_shape"
             android:contentDescription="@string/empty" />
 
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
@@ -88,7 +89,8 @@
             android:clipToOutline="true"
             android:contentDescription="@string/empty"
             android:padding="2dp"
-            android:src="@drawable/gigachad" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/user" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -127,17 +129,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUsername" />
 
-    <ImageView
-        android:id="@+id/imageViewPen"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:importantForAccessibility="no"
-        app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
-        app:layout_constraintStart_toEndOf="@+id/tvUsername"
-        app:srcCompat="@drawable/pen"
-        app:tint="?android:textColorPrimary" />
+
 
     <TextView
         android:id="@+id/textView3"
@@ -168,24 +160,17 @@
         tools:ignore="VisualLintButtonSize" />
 
 
-    <Button
-        android:id="@+id/myMoviesButton"
-        android:layout_width="170dp"
+    <TextView
+        android:id="@+id/favoriteTv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_marginHorizontal="16dp"
+        android:text="@string/favorite_txt"
+        android:textSize="22sp"
+        android:textStyle="bold"
         android:backgroundTint="#2d2d2d"
-        android:text="@string/my_movies"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchNotify" />
-
-    <Button
-        android:id="@+id/mySeriesButton"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="#2d2d2d"
-        android:text="@string/my_series"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchNotify" />
 
     <Switch
@@ -206,7 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintTop_toBottomOf="@id/myMoviesButton"
+        app:layout_constraintTop_toBottomOf="@id/favoriteTv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="1.0">

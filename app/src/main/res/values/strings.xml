@@ -52,5 +52,6 @@
     <string name="exampleEmail">example@example.com</string>
     <string name="add_to_favorites">Add to Favorites</string>
     <string name="favorite">favourate_image</string>
+    <string name="favorite_txt">Favorites:</string>
 
 </resources>
